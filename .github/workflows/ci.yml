@@ -23,9 +23,10 @@ jobs:
           pip install pytest
 
       - name: Tests
-        working-directory: src
-        run: | 
-          python -m pytest 
+        env:
+          PYTHONPATH: src
+        run: |
+          pytest -q
 
       - name: Déploiement via SSH
         run: |
