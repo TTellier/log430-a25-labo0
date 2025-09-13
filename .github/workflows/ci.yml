@@ -29,6 +29,7 @@ jobs:
           pytest -q
 
       - name: Déploiement via SSH
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           # Install SSH client
           sudo apt-get update && sudo apt-get install -y openssh-client
